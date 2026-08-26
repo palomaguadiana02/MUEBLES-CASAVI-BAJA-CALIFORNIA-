@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muebles Casavi — Muebles para toda la casa en Baja California</title>
+<meta name="description" content="Muebles Casavi: sala, comedor, recámara, oficina y exteriores. Entrega en toda Baja California. Pide por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand: #EDE5D6;
+    --sand-2: #E2D6BF;
+    --espresso: #33261C;
+    --sienna: #A24E1E;
+    --sage: #6C7A5A;
+    --ink: #2A2019;
+    --paper: #F7F2E9;
+    --line: rgba(51,38,28,0.16);
+    --radius: 2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--sand);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    color:var(--espresso);
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--sienna);
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(237,229,214,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:22px;
+    color:var(--espresso);
+    text-decoration:none;
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .brand span{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    color:var(--sage);
+    letter-spacing:0.1em;
+    font-weight:400;
+  }
+  .navlinks{display:flex; gap:32px; font-size:15px;}
+  .navlinks a{text-decoration:none; color:var(--espresso); position:relative;}
+  .navlinks a:hover{color:var(--sienna);}
+  .nav-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--espresso); color:var(--paper);
+    padding:11px 20px; border-radius:var(--radius);
+    text-decoration:none; font-size:14px; font-weight:500;
+    transition:background .2s ease;
+  }
+  .nav-cta:hover{background:var(--sienna);}
+  .menu-btn{display:none; background:none; border:none; font-size:26px; color:var(--espresso); cursor:pointer;}
+
+  @media(max-width:820px){
+    .navlinks{
+      display:none;
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--paper); flex-direction:column; gap:0;
+      border-bottom:1px solid var(--line);
+    }
+    .navlinks.open{display:flex;}
+    .navlinks a{padding:16px 28px; border-top:1px solid var(--line);}
+    .menu-btn{display:block;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:96px 0 80px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; right:-120px; top:-160px;
+    width:520px; height:520px; border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, var(--sand-2), transparent 70%);
+    opacity:0.9;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;
+    position:relative;
+  }
+  .hero h1{
+    font-size:clamp(38px, 5vw, 62px);
+    line-height:1.03;
+    margin:14px 0 22px;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--sienna); font-weight:500;
+  }
+  .hero p.lead{
+    font-size:18px; max-width:46ch; color:#4a3b2e; margin-bottom:32px;
+  }
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 26px; border-radius:var(--radius);
+    text-decoration:none; font-weight:600; font-size:15px;
+    border:1px solid transparent; transition:all .2s ease;
+  }
+  .btn-primary{background:var(--sienna); color:#fff;}
+  .btn-primary:hover{background:#8a4118;}
+  .btn-outline{border-color:var(--espresso); color:var(--espresso);}
+  .btn-outline:hover{background:var(--espresso); color:var(--paper);}
+  .btn svg{width:18px;height:18px;}
+
+  .hero-visual{
+    position:relative;
+    aspect-ratio:4/5;
+    background:var(--paper);
+    border:1px solid var(--line);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:14px; text-align:center; padding:24px;
+  }
+  .hero-visual .tag{
+    position:absolute; top:16px; left:16px;
+    font-family:'Space Mono',monospace; font-size:11px;
+    background:var(--espresso); color:var(--paper); padding:6px 10px;
+  }
+  .placeholder-icon{width:64px;height:64px; color:var(--sage); opacity:.7;}
+  .hero-visual small{
+    font-family:'Space Mono',monospace; color:#8a7c68; font-size:12px;
+  }
+  .hero-visual--photo{padding:0; overflow:hidden;}
+  .hero-visual--photo img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+
+  .service-strip{
+    display:flex; gap:10px; flex-wrap:wrap; margin-top:36px;
+  }
+  .pill{
+    font-family:'Space Mono', monospace; font-size:12px;
+    border:1px solid var(--line); padding:7px 13px;
+    color:#5a4a3a;
+  }
+
+  /* ---------- section shell ---------- */
+  section{padding:80px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; margin-bottom:44px; flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(28px,3.4vw,38px);}
+  .section-head p{max-width:44ch; color:#5a4a3a; margin-top:10px;}
+
+  /* ---------- categories ---------- */
+  .cat-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  .cat-card{
+    background:var(--sand);
+    padding:36px 28px;
+    display:flex; flex-direction:column; gap:16px;
+    transition:background .25s ease;
+    cursor:default;
+  }
+  .cat-card:hover{background:var(--paper);}
+  .cat-icon{width:40px;height:40px; color:var(--sienna);}
+  .cat-card h3{font-size:21px;}
+  .cat-card p{margin:0; font-size:14px; color:#6b5c49;}
+  @media(max-width:820px){ .cat-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:520px){ .cat-grid{grid-template-columns:1fr;} }
+
+  /* ---------- catalog placeholders ---------- */
+  .catalog{background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .prod-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:26px;
+  }
+  .prod-card{
+    background:var(--sand);
+    border:1px solid var(--line);
+  }
+  .prod-photo{
+    aspect-ratio:1/1;
+    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;
+    background:
+      repeating-linear-gradient(135deg, var(--sand-2) 0 2px, transparent 2px 14px);
+    border-bottom:1px solid var(--line);
+    color:#8a7c68;
+  }
+  .prod-photo svg{width:34px;height:34px; opacity:.6;}
+  .prod-photo span{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.05em;}
+  .prod-photo--filled{padding:0;}
+  .prod-photo--filled img{width:100%; height:100%; object-fit:cover; display:block;}
+  .prod-info{padding:16px 18px 20px;}
+  .prod-info .cat-label{font-family:'Space Mono',monospace; font-size:11px; color:var(--sage); text-transform:uppercase; letter-spacing:.06em;}
+  .prod-info h4{font-family:'Fraunces',serif; font-size:17px; font-weight:600; margin:6px 0 4px; color:var(--espresso);}
+  .prod-info .price{font-family:'Space Mono',monospace; font-size:13px; color:#6b5c49;}
+  @media(max-width:940px){ .prod-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:520px){ .prod-grid{grid-template-columns:1fr 1fr; gap:14px;} .prod-info{padding:12px 12px 16px;} }
+
+  .catalog-note{
+    margin-top:28px; font-size:13px; color:#8a7c68; font-family:'Space Mono',monospace;
+    border-left:2px solid var(--sienna); padding-left:14px;
+  }
+
+  /* ---------- why us ---------- */
+  .why{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:start;}
+  .why-list{display:flex; flex-direction:column;}
+  .why-item{
+    display:flex; gap:20px; padding:26px 0; border-top:1px solid var(--line);
+  }
+  .why-item:last-child{border-bottom:1px solid var(--line);}
+  .why-num{font-family:'Space Mono',monospace; color:var(--sienna); font-size:14px; padding-top:2px;}
+  .why-item h3{font-size:19px; margin-bottom:6px;}
+  .why-item p{margin:0; color:#5a4a3a; font-size:14.5px;}
+
+  .map-card{
+    background:var(--paper); border:1px solid var(--line); padding:34px;
+  }
+  .map-card h3{font-size:20px; margin-bottom:14px;}
+  .city-tags{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 26px;}
+  .city-tags span{
+    font-size:13px; padding:7px 12px; border:1px solid var(--line); font-family:'Space Mono',monospace;
+  }
+
+  /* ---------- contact / whatsapp ---------- */
+  .contact{
+    background:var(--espresso); color:var(--paper);
+  }
+  .contact .eyebrow{color:#d8b98f;}
+  .contact h2{color:var(--paper); font-size:clamp(28px,3.8vw,42px); max-width:16ch;}
+  .contact p.lead{color:#d8cbb8; max-width:48ch; margin-top:14px;}
+  .contact-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;
+  }
+  .contact-cards{display:flex; flex-direction:column; gap:14px;}
+  .contact-card{
+    display:flex; align-items:center; gap:16px;
+    background:rgba(247,242,233,0.06);
+    border:1px solid rgba(247,242,233,0.18);
+    padding:20px 22px; text-decoration:none; color:var(--paper);
+    transition:background .2s ease;
+  }
+  .contact-card:hover{background:rgba(247,242,233,0.12);}
+  .contact-card svg{width:26px;height:26px; color:#8bc07c; flex-shrink:0;}
+  .contact-card .label{font-family:'Space Mono',monospace; font-size:11px; color:#c9bda9; text-transform:uppercase; letter-spacing:.06em;}
+  .contact-card .value{font-size:17px; font-weight:500;}
+
+  @media(max-width:860px){
+    .hero-grid, .why, .contact-grid{grid-template-columns:1fr;}
+    .hero-visual{max-width:420px;}
+  }
+
+  /* ---------- footer ---------- */
+  footer{padding:36px 0; border-top:1px solid var(--line);}
+  .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+  .foot-row small{color:#8a7c68; font-size:13px;}
+
+  ::selection{background:var(--sienna); color:#fff;}
+  :focus-visible{outline:2px solid var(--sienna); outline-offset:3px;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">Casavi <span>MUEBLES · B.C.</span></a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#categorias">Categorías</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#nosotros">Por qué Casavi</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/526611108173" target="_blank" rel="noopener">
+      WhatsApp
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Muebles para toda la casa</div>
+        <h1>Amuebla tu espacio<br><em>sin salir de Baja California.</em></h1>
+        <p class="lead">Sala, comedor, recámara, oficina y exteriores — piezas para cada rincón de tu casa o negocio, con entrega en toda la región. Cotiza directo por WhatsApp.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/526611108173" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39c1.44.79 3.06 1.2 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0 0 12.04 2m0 1.8a8.1 8.1 0 0 1 5.76 2.39 8.09 8.09 0 0 1 2.38 5.76c0 4.49-3.65 8.14-8.15 8.14-1.42 0-2.81-.37-4.03-1.06l-.29-.17-3.14.82.84-3.06-.19-.31a8.08 8.08 0 0 1-1.24-4.31c0-4.5 3.66-8.2 8.16-8.2m-4.65 4.2c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.02 0 1.19.87 2.34 1 2.5.12.16 1.7 2.71 4.2 3.7 2.08.82 2.5.66 2.95.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.71-1.68-.8-.22-.08-.39-.12-.55.13-.16.24-.63.79-.78.96-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.2-.72-.65-1.21-1.44-1.35-1.68-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.42h-.4Z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+          <a class="btn btn-outline" href="#catalogo">Ver catálogo</a>
+        </div>
+        <div class="service-strip">
+          <span class="pill">Mexicali</span>
+          <span class="pill">Tijuana</span>
+          <span class="pill">Ensenada</span>
+          <span class="pill">Rosarito</span>
+          <span class="pill">Tecate</span>
+        </div>
+      </div>
+
+      <div class="hero-visual hero-visual--photo">
+        <img src="images/casavi-hero.png" alt="Comedor Casavi Muebles: mesa de madera oscura con cuatro sillones tapizados en negro, sobre tapete de fibra natural">
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section id="categorias">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Lo que manejamos</div>
+          <h2>Una categoría para cada espacio</h2>
+        </div>
+        <p>Todo tipo de muebles para casa, oficina y exteriores. Si buscas algo que no ves aquí, pregúntanos — seguro lo conseguimos.</p>
+      </div>
+
+      <div class="cat-grid">
+        <div class="cat-card">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 13h16v6H4z"/><path d="M4 13v-2a2 2 0 0 1 2-2h1M20 13v-2a2 2 0 0 0-2-2h-1M9 9V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v3"/><path d="M5 19v1.5M19 19v1.5"/></svg>
+          <h3>Sala</h3>
+          <p>Sillones, sofás, mesas de centro y muebles de entretenimiento.</p>
+        </div>
+        <div class="cat-card">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="10" width="18" height="2"/><path d="M5 12v6M19 12v6M8 8h8"/></svg>
+          <h3>Comedor</h3>
+          <p>Mesas, sillas y vitrinas para reuniones familiares o de negocio.</p>
+        </div>
+        <div class="cat-card">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 19v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 19h18M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/></svg>
+          <h3>Recámara</h3>
+          <p>Camas, buróes, clósets y cómodas en distintos tamaños.</p>
+        </div>
+        <div class="cat-card">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="4" width="16" height="12" rx="1"/><path d="M9 20h6M12 16v4"/></svg>
+          <h3>Oficina</h3>
+          <p>Escritorios, sillas ergonómicas y libreros para tu espacio de trabajo.</p>
+        </div>
+        <div class="cat-card">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 20l6-14 6 14M7 20l3-8 3 8"/><path d="M18 8l2-4"/></svg>
+          <h3>Exteriores</h3>
+          <p>Muebles resistentes para terraza, jardín y patio.</p>
+        </div>
+        <div class="cat-card">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+          <h3>Otros / Bajo pedido</h3>
+          <p>¿Buscas algo específico? Cuéntanos y te decimos disponibilidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO (placeholders) -->
+  <section id="catalogo" class="catalog">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Catálogo</div>
+          <h2>Piezas destacadas</h2>
+        </div>
+        <p>Ejemplo de cómo se verán tus productos — sustituye cada espacio por fotos reales y precios.</p>
+      </div>
+
+      <div class="prod-grid">
+        <div class="prod-card">
+          <div class="prod-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 15l5-5 4 4 5-6 4 5"/></svg>
+            <span>ESPACIO PARA FOTO</span>
+          </div>
+          <div class="prod-info">
+            <div class="cat-label">Sala</div>
+            <h4>Sofá — nombre del modelo</h4>
+            <div class="price">$ precio</div>
+          </div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-photo prod-photo--filled">
+            <img src="images/casavi-hero.png" alt="Comedor Casavi: mesa de madera oscura con cuatro sillones tapizados en negro">
+          </div>
+          <div class="prod-info">
+            <div class="cat-label">Comedor</div>
+            <h4>Mesa — nombre del modelo</h4>
+            <div class="price">$ precio</div>
+          </div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 15l5-5 4 4 5-6 4 5"/></svg>
+            <span>ESPACIO PARA FOTO</span>
+          </div>
+          <div class="prod-info">
+            <div class="cat-label">Recámara</div>
+            <h4>Cama — nombre del modelo</h4>
+            <div class="price">$ precio</div>
+          </div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 15l5-5 4 4 5-6 4 5"/></svg>
+            <span>ESPACIO PARA FOTO</span>
+          </div>
+          <div class="prod-info">
+            <div class="cat-label">Oficina</div>
+            <h4>Escritorio — nombre del modelo</h4>
+            <div class="price">$ precio</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog-note">
+        Nota: cada tarjeta es un espacio reservado. Reemplaza la imagen, la categoría, el nombre y el precio por los datos reales de cada mueble.
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ CASAVI -->
+  <section id="nosotros">
+    <div class="wrap why">
+      <div>
+        <div class="eyebrow">Por qué Casavi</div>
+        <h2 style="font-size:clamp(26px,3vw,34px); margin-top:10px;">Muebles de confianza, cerca de ti</h2>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-num">01</div>
+            <div>
+              <h3>Atención directa</h3>
+              <p>Hablas directo con nosotros por WhatsApp o teléfono, sin intermediarios.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">02</div>
+            <div>
+              <h3>Cobertura regional</h3>
+              <p>Entrega en Mexicali y otras ciudades de Baja California.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">03</div>
+            <div>
+              <h3>Todo tipo de mueble</h3>
+              <p>Sala, comedor, recámara, oficina, exteriores y piezas especiales bajo pedido.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <h3>Zona de servicio</h3>
+        <p style="color:#5a4a3a; font-size:14.5px;">Actualmente entregamos en las siguientes ciudades de Baja California. Si no ves tu ciudad, pregúntanos por disponibilidad.</p>
+        <div class="city-tags">
+          <span>Mexicali</span><span>Tijuana</span><span>Ensenada</span>
+          <span>Tecate</span><span>Rosarito</span><span>San Felipe</span>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/526611108173" target="_blank" rel="noopener" style="width:100%; justify-content:center;">Pregunta por tu ciudad</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="eyebrow">Contacto</div>
+        <h2>Cuéntanos qué mueble buscas y te cotizamos hoy mismo.</h2>
+        <p class="lead">Escríbenos por WhatsApp con fotos de referencia o el modelo que te interesa, o llama directo a cualquiera de nuestros números.</p>
+      </div>
+      <div class="contact-cards">
+        <a class="contact-card" href="https://wa.me/526611108173" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39c1.44.79 3.06 1.2 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0 0 12.04 2m0 1.8a8.1 8.1 0 0 1 5.76 2.39 8.09 8.09 0 0 1 2.38 5.76c0 4.49-3.65 8.14-8.15 8.14-1.42 0-2.81-.37-4.03-1.06l-.29-.17-3.14.82.84-3.06-.19-.31a8.08 8.08 0 0 1-1.24-4.31c0-4.5 3.66-8.2 8.16-8.2Z"/></svg>
+          <div>
+            <div class="label">WhatsApp / México</div>
+            <div class="value">+52 (661) 110 8173</div>
+          </div>
+        </a>
+        <a class="contact-card" href="tel:+19096953395">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92Z"/></svg>
+          <div>
+            <div class="label">Teléfono / EE. UU.</div>
+            <div class="value">+1 (909) 695 3395</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span class="brand" style="font-size:17px;">Casavi <span>MUEBLES · B.C.</span></span>
+    <small>© <span id="year"></span> Muebles Casavi — Baja California. Todos los derechos reservados.</small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const menuBtn = document.getElementById('menuBtn');
+  const navlinks = document.getElementById('navlinks');
+  menuBtn.addEventListener('click', () => navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+</script>
+
+</body>
+</html>
